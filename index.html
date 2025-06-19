@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Image Gallery with Lightbox</title>
+    <meta name="description" content="A modern, responsive image gallery with lightbox functionality. Features include smooth transitions, zoom capabilities, keyboard controls, and touch support.">
+    <meta name="keywords" content="image gallery, lightbox, responsive design, zoom, touch support">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Gallery</h1>
+            <p>Click on any image to view in lightbox mode</p>
+        </header>
+
+        <div class="gallery-controls">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search images...">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="nature">Nature</button>
+                <button class="filter-btn" data-category="architecture">Architecture</button>
+                <button class="filter-btn" data-category="city">City</button>
+            </div>
+
+            <div class="sort-options">
+                <select id="sort">
+                    <option value="default">Sort by</option>
+                    <option value="name">Name</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="gallery-item" data-category="nature">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Nature Landscape" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Nature Landscape</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="architecture">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Modern Architecture" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Modern Architecture</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Mountain View" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Mountain View</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="city">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="City Lights" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>City Lights</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Forest Path" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Forest Path</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="architecture">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Modern Building" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Modern Building</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="city">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="City Skyline" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>City Skyline</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="Waterfall" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Waterfall</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox Image">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-info">
+                <span class="image-size"></span>
+                <span class="image-resolution"></span>
+            </div>
+        </div>
+        <button class="lightbox-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="lightbox-zoom-in">
+            <i class="fas fa-search-plus"></i>
+        </button>
+        <button class="lightbox-zoom-out">
+            <i class="fas fa-search-minus"></i>
+        </button>
+        <button class="lightbox-rotate">
+            <i class="fas fa-redo"></i>
+        </button>
+        <button class="lightbox-fullscreen">
+            <i class="fas fa-expand"></i>
+        </button>
+        <button class="lightbox-download">
+            <i class="fas fa-download"></i>
+        </button>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>Created by <a href="https://harmoncode.com" target="_blank">HarmonCode</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
